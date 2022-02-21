@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LibroController;
+use App\Http\Controllers\EditorialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/libros', [LibroController::class , 'listar']);
+Route::get('/libros/{libro}', [LibroController::class , 'listarUno']);
+Route::get('/libros/create', [LibroController::class , 'create']);
+Route::get('/libros/update', [LibroController::class , 'update']);
+Route::get('/editorial/create', [EditorialController::class , 'create']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
