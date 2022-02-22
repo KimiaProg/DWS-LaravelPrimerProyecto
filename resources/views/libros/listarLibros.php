@@ -10,7 +10,8 @@
     <h1>ListaLibros</h1>
     <?php
     if(isset($libro)){
-        echo $libro;
+        echo $libro->titulo . "<br>";
+        echo $libro->publicacion;
     }
     if(isset($libros)){
         //var_dump($libros);

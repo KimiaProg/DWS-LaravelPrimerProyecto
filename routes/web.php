@@ -20,11 +20,20 @@ Route::get('/', function () {
 });
 
 Route::get('/libros', [LibroController::class , 'listar']);
-Route::get('/libros/{libro}', [LibroController::class , 'listarUno']);
 Route::get('/libros/create', [LibroController::class , 'create']);
-Route::get('/libros/update', [LibroController::class , 'update']);
-Route::get('/editorial/create', [EditorialController::class , 'create']);
+Route::post('/libros/realizarCreate', [LibroController::class , 'realizarCreate']);
+Route::post('/libros/realizarUpdate', [LibroController::class , 'realizarUpdate']);
 
+//Route::get('/libros/{libro}', [LibroController::class , 'listarUno']);
+
+
+
+
+Route::get('/libros/update/{libro}', [LibroController::class , 'update']);
+/*
+Route::get('/libros/update/{id}', [LibroController::class , 'update']);
+Route::get('/editorial/create', [EditorialController::class , 'create']);
+*/
 
 Route::get('/dashboard', function () {
     return view('dashboard');
