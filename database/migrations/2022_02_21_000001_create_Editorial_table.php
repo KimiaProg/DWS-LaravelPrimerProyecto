@@ -17,19 +17,34 @@ class CreateEditorialTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('nacionalidad');
-            $table->text('abilities')->nullable();
             $table->timestamps();
         });
 
         Schema::create('Libro', function (Blueprint $table) {
-            $table->id();
-            $table->integer('ISBN');
+            $table->string('ISBN',13)->primary();
             $table->string('titulo');
             $table->string('autor');
             $table->string('idioma');
             $table->date('publicacion');
-            $table->string('editorial');
+           /* $table->unsignedInteger('editorial');
+
+            $table->foreign('editorial')->references('id')->on('Editorial');*/
+
+            $table->foreignId('editorial')->constrained('Editorial');
             $table->timestamps();
+
+        });
+
+        Schema::create('Prestamo', function (Blueprint $table) {
+            $table->id();
+            $table->string('ISBN',13);
+            $table->string('fechaInicio');
+            $table->string('fechaFin');
+
+            $table->foreign('ISBN')->references('ISBN')->on('Libro');
+
+            $table->timestamps();
+
         });
     }
 

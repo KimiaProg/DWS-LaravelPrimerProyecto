@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Libro;
+use App\Models\Editorial;
+
 
 
 class LibroController extends Controller
@@ -16,20 +18,21 @@ class LibroController extends Controller
      */
     public function listar()
     {
-        $libros= Libro::all();
+        $libros = Libro::all();
         return view("libros.listarLibros", compact('libros'));
     }
 
     public function listarUno(Libro $libro)
     {
-        return view("libros.listarLibros", compact('libro'));
+        $editorial=Editorial::find($libro->editorial);
+        return view("libros.listarLibros", compact(['libro','editorial']));
     }
 
     public function create()
     {
         return view("libros.create");
     }
-    
+
 
     public function update(Libro $libro)
     {
@@ -48,14 +51,15 @@ class LibroController extends Controller
         $libro->save();
     }
 
-    public function realizarUpdate(Request $request){
+    public function realizarUpdate(Request $request)
+    {
         $isbn = $_POST["ISBN"];
-        $libro =Libro::find($isbn);
+        $libro = Libro::find($isbn);
         $libro->titulo = $request->titulo;
         $libro->idioma = $request->idioma;
         $libro->autor = $request->autor;
         $libro->publicacion = $request->publicacion;
         $libro->editorial = $request->editorial;
-        $libro->save();   
-     }
+        $libro->save();
+    }
 }

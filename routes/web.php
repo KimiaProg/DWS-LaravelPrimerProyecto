@@ -23,17 +23,14 @@ Route::get('/libros', [LibroController::class , 'listar']);
 Route::get('/libros/create', [LibroController::class , 'create']);
 Route::post('/libros/realizarCreate', [LibroController::class , 'realizarCreate']);
 Route::post('/libros/realizarUpdate', [LibroController::class , 'realizarUpdate']);
-
-//Route::get('/libros/{libro}', [LibroController::class , 'listarUno']);
-
-
-
+Route::get('/editorial/create', [EditorialController::class , 'create']);
+Route::post('/editorial/realizarCreate', [EditorialController::class , 'realizarCreate']);
+Route::get('/editorial', [EditorialController::class , 'listar']);
 
 Route::get('/libros/update/{libro}', [LibroController::class , 'update']);
-/*
-Route::get('/libros/update/{id}', [LibroController::class , 'update']);
-Route::get('/editorial/create', [EditorialController::class , 'create']);
-*/
+Route::get('/libros/{libro}', [LibroController::class , 'listarUno']);
+Route::get('/editorial/{editorial}', [EditorialController::class , 'listarUno']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
