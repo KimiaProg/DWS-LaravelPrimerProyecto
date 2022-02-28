@@ -38,11 +38,20 @@ class CreateEditorialTable extends Migration
         Schema::create('Prestamo', function (Blueprint $table) {
             $table->id();
             $table->string('ISBN',13);
-            $table->string('fechaInicio');
-            $table->string('fechaFin');
+            $table->date('fechaInicio');
+            $table->date('fechaFin');
 
             $table->foreign('ISBN')->references('ISBN')->on('Libro');
 
+            $table->timestamps();
+
+        });
+
+        Schema::create('Peticiones', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombreApellido');
+            $table->string('correoElectronico');
+            $table->string('tituloLibro');
             $table->timestamps();
 
         });
