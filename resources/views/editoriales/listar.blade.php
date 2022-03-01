@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
+@extends('layouts.master')
+@section('title','Listar Editorial')
+@section('content')
+<div class="container">
     <?php
     if (isset($editorial)) {
         echo "<h1>Tu editorial elegido es:</h1>";
@@ -17,7 +10,7 @@
     }
     if (isset($editoriales)) {
        echo ' <h1>Lista de Editoriales</h1>';
-       echo "<table border= 1>";
+       echo "<table class='table table-success table-striped'>";
        echo "<tr><th>Nombre</th><th>Nacionalidad</th></tr>";
 
         foreach ($editoriales as $editorial) {
@@ -31,6 +24,6 @@
 
     }
     ?>
-</body>
+</div>
+@endsection
 
-</html>
