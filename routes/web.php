@@ -17,7 +17,7 @@ use App\Http\Controllers\PDFController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.index');
 });
 Route::get('/home', function(){
     return view('layouts.index');

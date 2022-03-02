@@ -31,7 +31,7 @@
             echo "<td>" . $libro->publicacion . "</td>";
             echo "<td><a href='/editorial/".$libro->editorial."'>" . $libro->editorial . "</a></td>";
             echo "<td><a href='/libros/".$libro->ISBN."'>" . 'Detalles' . "</a></td>";
-            echo "<td><a href='/libros/update/".$libro->ISBN."'>" . 'Actualizar' . "</a></td>";
+            ?>@auth<?php echo "<td><a href='/libros/update/".$libro->ISBN."'>" . 'Actualizar' . "</a></td>";?>@endauth<?php
             echo "</tr>";
 
         }

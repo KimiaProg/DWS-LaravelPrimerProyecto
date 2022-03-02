@@ -2,6 +2,7 @@
 @section('title','Listar Editorial')
 @section('content')
 <div class="container">
+    <a href="/editorial/create" class="btn btn-success">Añadir Editorial</a><br>
     <?php
     if (isset($editorial)) {
         echo "<h1>Tu editorial elegido es:</h1>";

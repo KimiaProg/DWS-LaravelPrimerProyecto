@@ -36,5 +36,6 @@ class EditorialController extends Controller
         $editorial->nombre = $request->nombre;
         $editorial->nacionalidad = $request->nacionalidad;
         $editorial->save();
+        return $this->listar();
     }
 }

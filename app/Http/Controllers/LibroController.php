@@ -49,6 +49,7 @@ class LibroController extends Controller
         $libro->publicacion = $request->publicacion;
         $libro->editorial = $request->editorial;
         $libro->save();
+        return $this->listar();
     }
 
     public function realizarUpdate(Request $request)
@@ -61,5 +62,6 @@ class LibroController extends Controller
         $libro->publicacion = $request->publicacion;
         $libro->editorial = $request->editorial;
         $libro->save();
+        return $this->listar();
     }
 }
